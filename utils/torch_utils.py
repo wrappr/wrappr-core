@@ -32,10 +32,7 @@ def select_device(device='', apex=False):
                 cuda_str = ' ' * len(cuda_str)
             print("%sdevice%g _CudaDeviceProperties(name='%s', total_memory=%dMB)" %
                   (cuda_str, i, x[i].name, x[i].total_memory / c))
-    else:
-        print('Using CPU')
 
-    print('')  # skip a line
     return torch.device('cuda:0' if cuda else 'cpu')
 
 

@@ -96,7 +96,6 @@ class LoadImages:  # for inference
             self.count += 1
             img0 = cv2.imread(path)  # BGR
             assert img0 is not None, 'Image Not Found ' + path
-            print('image %g/%g %s: ' % (self.count, self.nF, path), end='')
 
         # Padded resize
         img, *_ = letterbox(img0, new_shape=self.img_size)
@@ -212,7 +211,6 @@ class LoadStreams:  # multiple IP or RTSP cameras
             thread = Thread(target=self.update, args=([i, cap]), daemon=True)
             print(' success (%gx%g at %.2f FPS).' % (w, h, fps))
             thread.start()
-        print('')  # newline
 
     def update(self, index, cap):
         # Read next stream frame in a daemon thread
